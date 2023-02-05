@@ -1,29 +1,48 @@
 package models;
 
 public class Dynasty {
-    private String Name;
-    private String NienHieu;
-    private String Year;
-    
-    public String getName() {
-        return Name;
-    }
-    public void setName(String name) {
-        Name = name;
-    }
-    public String getNienHieu() {
-        return NienHieu;
-    }
-    public void setNienHieu(String nienHieu) {
-        NienHieu = nienHieu;
-    }
-    public String getYear() {
-        return Year;
-    }
-    public void setYear(String year) {
-        Year = year;
-    }
+    private String name;
+    private String label;
+    private String lunaryear;
+    private String year;
+
     public Dynasty() {
+
     }
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getLunaryear() {
+        return lunaryear;
+    }
+
+    public void setLunaryear(String lunaryear) {
+        this.lunaryear = lunaryear;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+   
+
+   
 }

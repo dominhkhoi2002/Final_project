@@ -2,6 +2,7 @@ package crawl;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.io.BufferedWriter;
 
 
@@ -20,25 +21,33 @@ import com.google.gson.GsonBuilder;
 
 import models.Dynasty;
 
-public class Crawl_dynastys {
+public class Crawl_dynasties {
     public static void main(String[] args) throws Exception {
         ArrayList<Dynasty> dynastyList =new ArrayList<>();
-        Document doc=Jsoup.connect("https://nguoikesu.com/tu-lieu/bang-doi-chieu-cac-trieu-dai-viet-nam-va-cac-trieu-dai-trung-quoc").get();
-        Elements table=doc.select("table");
+        String url = "https://nguoikesu.com/tu-lieu/bang-doi-chieu-cac-trieu-dai-viet-nam-va-cac-trieu-dai-trung-quoc";
+        Document doc = Jsoup.connect(url).get();
+        Elements table = doc.select("table.table.table-bordered");
         Elements rows = table.select("tr");
+        List<Dynasty> siteList = new ArrayList<Dynasty>();
         for (int i = 1; i < rows.size(); i++) {
+
             Element row = rows.get(i);
             Elements cols = row.select("td");
-            Dynasty dynasty = new Dynasty();
-            dynasty.setName(cols.get(0).text());
-            dynasty.setNienHieu(cols.get(1).text());
-            dynasty.setYear(cols.get(2).text());
-            dynastyList.add(dynasty);
+            int check = cols.size();
+            if (check > 3) {
+                Dynasty historical_dynasty = new Dynasty();
+                historical_dynasty.setName(cols.get(0).text());
+                historical_dynasty.setLabel(cols.get(1).text());
+                historical_dynasty.setLunaryear(cols.get(2).text());
+                historical_dynasty.setYear(cols.get(3).text());
+                siteList.add(historical_dynasty);
+            }
+
         }
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String dy = gson.toJson(dynastyList);
-        Path path = Paths.get("Dynastys.json");
+        String dy = gson.toJson(siteList);    
 
+        Path path = Paths.get("Dynasties.json");
         try (BufferedWriter writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
                 writer.append(dy);
                 writer.close();
