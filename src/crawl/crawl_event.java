@@ -23,7 +23,7 @@ import java.nio.charset.StandardCharsets;
 
 import models.Event;
 
-public class crawl_event {
+public class Crawl_event  {
     public static void main(String[] args) throws Exception {
         String url = "https://vi.wikipedia.org/wiki/Niên_biểu_lịch_sử_Việt_Nam";
         Document doc = Jsoup.connect(url).get();
