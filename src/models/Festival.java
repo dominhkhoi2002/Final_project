@@ -54,5 +54,8 @@ public class Festival {
     public String getFirstHeldYear() {
         return FirstHeldYear;
     }
+    public int getCount() {
+        return count;
+    }
    
 }

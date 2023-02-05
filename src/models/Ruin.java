@@ -42,5 +42,8 @@ public class Ruin {
     public Ruin() {
         count++;
     }
+    public int getCount() {
+        return count;
+    }
   
 }

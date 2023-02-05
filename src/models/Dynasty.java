@@ -48,6 +48,9 @@ public class Dynasty {
     public void setYear(String year) {
         this.year = year;
     }
+    public int getCount() {
+        return count;
+    }
 
    
 

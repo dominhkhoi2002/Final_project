@@ -33,6 +33,9 @@ public class King {
         Year = year;
         count++;
     }
+    public int getCount() {
+        return count;
+    }
 
     
 }

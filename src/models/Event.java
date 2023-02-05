@@ -21,5 +21,8 @@ public class Event {
         this.details = details;
         count++;
     }
+    public int getCount() {
+        return count;
+    }
 
 }
