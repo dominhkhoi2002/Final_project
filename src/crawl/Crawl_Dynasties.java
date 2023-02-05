@@ -20,7 +20,7 @@ import com.google.gson.GsonBuilder;
 
 import models.Dynasty;
 
-public class Crawl_Dynasties {    
+public class Crawl_Dynasties implements Crawl {    
 
     ArrayList<Dynasty> dynastiesList = new ArrayList<Dynasty>();
     String url = "https://nguoikesu.com/tu-lieu/bang-doi-chieu-cac-trieu-dai-viet-nam-va-cac-trieu-dai-trung-quoc";

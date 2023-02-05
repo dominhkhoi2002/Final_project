@@ -21,7 +21,7 @@ import com.google.gson.GsonBuilder;
 
 import models.Ruin;
 
-public class Crawl_Ruins{ 
+public class Crawl_Ruins implements Crawl{ 
     ArrayList<Ruin> Ruinslist =new ArrayList<>();
     String url= "https://vi.wikipedia.org/wiki/Danh_sách_Di_tích_quốc_gia_Việt_Nam";
     public Crawl_Ruins()  throws IOException {

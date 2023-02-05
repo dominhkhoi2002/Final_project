@@ -20,7 +20,7 @@ import com.google.gson.GsonBuilder;
 
 import models.King;
 
-public class Crawl_King {
+public class Crawl_King implements Crawl {
     String url = "http://www.hannom.org.vn/detail.asp?param=1020&Catid=493";
     ArrayList<King> kingsList = new ArrayList<King>();
     public Crawl_King () throws Exception {

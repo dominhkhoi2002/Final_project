@@ -20,7 +20,7 @@ import com.google.gson.GsonBuilder;
 
 import models.Festival;
 
-public class Crawl_Festival {
+public class Crawl_Festival implements Crawl {
         ArrayList<Festival> festivalList =new ArrayList<>();
         String url= "https://vi.wikipedia.org/wiki/Lễ_hội_Việt_Nam";
     public Crawl_Festival()  throws IOException {

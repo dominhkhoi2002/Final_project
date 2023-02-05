@@ -22,7 +22,7 @@ import java.nio.charset.StandardCharsets;
 
 import models.Event;
 
-public class Crawl_Event  {
+public class Crawl_Event implements Crawl  {
     private ArrayList <Event> EventList = new ArrayList<Event>();
     private String url="https://vi.wikipedia.org/wiki/Niên_biểu_lịch_sử_Việt_Nam";
     public Crawl_Event () throws Exception 
