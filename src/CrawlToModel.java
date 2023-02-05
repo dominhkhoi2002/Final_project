@@ -18,7 +18,7 @@ public class CrawlToModel {
         ArrayList<Dynasty> dynastiesList = Dynasties.getDynastiesList();
         ArrayList<Festival> festivalsList = Festival.getFestivalsList();
         ArrayList<Ruin> ruinsList = Ruins.getRuinsList();
-        //print first element of each list
+        //  print first element of each list
         //  System.out.println(kingsList.get(0).getName());
         //  System.out.println(eventsList.get(0).getDetails());
         //  System.out.println(dynastiesList.get(0).getName());
