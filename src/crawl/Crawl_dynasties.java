@@ -2,7 +2,6 @@ package crawl;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.io.BufferedWriter;
 
 
@@ -21,14 +20,16 @@ import com.google.gson.GsonBuilder;
 
 import models.Dynasty;
 
-public class Crawl_dynasties {
-    public static void main(String[] args) throws Exception {
-        ArrayList<Dynasty> dynastyList =new ArrayList<>();
-        String url = "https://nguoikesu.com/tu-lieu/bang-doi-chieu-cac-trieu-dai-viet-nam-va-cac-trieu-dai-trung-quoc";
+public class Crawl_Dynasties {    
+
+    ArrayList<Dynasty> dynastiesList = new ArrayList<Dynasty>();
+    String url = "https://nguoikesu.com/tu-lieu/bang-doi-chieu-cac-trieu-dai-viet-nam-va-cac-trieu-dai-trung-quoc";
+    public Crawl_Dynasties() throws Exception {
+
         Document doc = Jsoup.connect(url).get();
         Elements table = doc.select("table.table.table-bordered");
         Elements rows = table.select("tr");
-        List<Dynasty> siteList = new ArrayList<Dynasty>();
+        
         for (int i = 1; i < rows.size(); i++) {
 
             Element row = rows.get(i);
@@ -40,12 +41,12 @@ public class Crawl_dynasties {
                 historical_dynasty.setLabel(cols.get(1).text());
                 historical_dynasty.setLunaryear(cols.get(2).text());
                 historical_dynasty.setYear(cols.get(3).text());
-                siteList.add(historical_dynasty);
+                dynastiesList.add(historical_dynasty);
             }
 
         }
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String dy = gson.toJson(siteList);    
+        String dy = gson.toJson(dynastiesList);    
 
         Path path = Paths.get("Dynasties.json");
         try (BufferedWriter writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
@@ -56,4 +57,7 @@ public class Crawl_dynasties {
             e.printStackTrace();
         }
     }   
+    public ArrayList<Dynasty> getDynastiesList() {
+        return dynastiesList;
+    }
 }

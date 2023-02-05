@@ -7,7 +7,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 
-import java.util.List;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
@@ -24,8 +23,9 @@ import java.nio.charset.StandardCharsets;
 import models.Event;
 
 public class Crawl_Event  {
-    private List <Event> EventList = new ArrayList<Event>();
-    public Crawl_Event (String url) throws Exception 
+    private ArrayList <Event> EventList = new ArrayList<Event>();
+    private String url="https://vi.wikipedia.org/wiki/Niên_biểu_lịch_sử_Việt_Nam";
+    public Crawl_Event () throws Exception 
     {
 
         Document doc = Jsoup.connect(url).get();
@@ -75,7 +75,7 @@ public class Crawl_Event  {
             e.printStackTrace();
         }
     }
-    public List<Event> getEventList(){
+    public ArrayList<Event> getEventsList(){
         return this.EventList;
     }
 }

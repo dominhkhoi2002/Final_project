@@ -20,11 +20,11 @@ import com.google.gson.GsonBuilder;
 
 import models.Festival;
 
-public class Crawl_festival {
-
-    public static void main(String[] args)  throws IOException {
+public class Crawl_Festival {
         ArrayList<Festival> festivalList =new ArrayList<>();
         String url= "https://vi.wikipedia.org/wiki/Lễ_hội_Việt_Nam";
+    public Crawl_Festival()  throws IOException {
+       
         Document doc = Jsoup.connect(url).get();
         Elements table = doc.select("table.prettytable.wikitable");
         Elements rows = table.select("tr");
@@ -50,5 +50,8 @@ public class Crawl_festival {
         catch (IOException e){
             e.printStackTrace();
         }
+    }
+    public ArrayList<Festival> getFestivalsList() {
+        return festivalList;
     }
 }

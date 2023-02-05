@@ -9,7 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -22,12 +21,14 @@ import com.google.gson.GsonBuilder;
 import models.King;
 
 public class Crawl_King {
-    public static void main(String[] args) throws Exception {
-        String url = "http://www.hannom.org.vn/detail.asp?param=1020&Catid=493";
+    String url = "http://www.hannom.org.vn/detail.asp?param=1020&Catid=493";
+    ArrayList<King> kingsList = new ArrayList<King>();
+    public Crawl_King () throws Exception {
+        
         Document doc = Jsoup.connect(url).get();
         Element table = doc.select("table.MsoNormalTable").get(0); //
         Elements rows = table.select("tr");
-        List<King> kingsList = new ArrayList<King>();
+        
         for (int i = 1; i < rows.size(); i++) {
             Element row = rows.get(i);
             Elements cols = row.select("td");
@@ -48,6 +49,9 @@ public class Crawl_King {
         catch (IOException e){
             e.printStackTrace();
         }
+    }
+    public ArrayList<King> getKingsList() {
+        return kingsList;
     }
 
 }

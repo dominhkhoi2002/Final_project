@@ -21,10 +21,11 @@ import com.google.gson.GsonBuilder;
 
 import models.Ruin;
 
-public class Crawl_ruins{
-    public void crawling_ruins(String[] args)  throws IOException {
-        ArrayList<Ruin> Ruinslist =new ArrayList<>();
-        String url= "https://vi.wikipedia.org/wiki/Danh_sách_Di_tích_quốc_gia_Việt_Nam";
+public class Crawl_Ruins{ 
+    ArrayList<Ruin> Ruinslist =new ArrayList<>();
+    String url= "https://vi.wikipedia.org/wiki/Danh_sách_Di_tích_quốc_gia_Việt_Nam";
+    public Crawl_Ruins()  throws IOException {
+       
         Document doc = Jsoup.connect(url).get();
         Elements temp = doc.select("#mw-content-text > div.mw-parser-output > table");
 
@@ -52,5 +53,8 @@ public class Crawl_ruins{
             e.printStackTrace();
         }
         
+    }
+    public ArrayList<Ruin> getRuinsList() {
+        return Ruinslist;
     }
 }
