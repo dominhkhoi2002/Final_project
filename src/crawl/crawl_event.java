@@ -54,7 +54,7 @@ public class crawl_event {
                 Element timeTag = dd.child(0);
                 Element contentTag = dd.clone();
                 contentTag.childNode(0).remove();
-                Event event = new Event(timeTag.text(), contentTag.text());
+                Event event = new Event(timeTag.text() +" năm " + dd.parent().previousElementSibling().text(), contentTag.text());
                 EventList.add(event);
             }
             catch(Exception ex){
