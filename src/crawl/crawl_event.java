@@ -23,14 +23,15 @@ import java.nio.charset.StandardCharsets;
 
 import models.Event;
 
-public class Crawl_event  {
-    public static void main(String[] args) throws Exception {
-        String url = "https://vi.wikipedia.org/wiki/Niên_biểu_lịch_sử_Việt_Nam";
-        Document doc = Jsoup.connect(url).get();
+public class Crawl_Event  {
+    private List <Event> EventList = new ArrayList<Event>();
+    public Crawl_Event (String url) throws Exception 
+    {
 
+        Document doc = Jsoup.connect(url).get();
         Elements pTag = doc.select("p");
         Elements ddTag = doc.select("dd");
-        List <Event> EventList = new ArrayList<Event>();
+        
         
         pTag.remove(0);
 
@@ -43,7 +44,7 @@ public class Crawl_event  {
                     continue;
                 }
                 Event event = new Event(timeTag.text(), contentTag.text());
-                EventList.add(event);
+                this.EventList.add(event);
             }
             catch(Exception ex){
                 ex.printStackTrace();
@@ -73,6 +74,9 @@ public class Crawl_event  {
         catch (IOException e){
             e.printStackTrace();
         }
+    }
+    public List<Event> getEventList(){
+        return this.EventList;
     }
 }
 
