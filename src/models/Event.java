@@ -3,6 +3,7 @@ package models;
 public class Event {
     private String Time;
     private String details;
+    private static int count = 0;
     public String getTime() {
         return Time;
     }
@@ -18,6 +19,7 @@ public class Event {
     public Event(String time, String details) {
         Time = time;
         this.details = details;
+        count++;
     }
 
 }

@@ -8,6 +8,7 @@ public class Festival {
     private String Place;
     private String FirstHeldYear;
     private String RelFigure;
+    private static int count = 0;
 
     public String getRelFigure() {
         return RelFigure;
@@ -18,12 +19,14 @@ public class Festival {
     }
 
     public Festival() {
+        count++;
     }
     public Festival(String Name, String Date, String Place, String FirstHeldYear) {
         this.Name = Name;
         this.Date = Date;
         this.Place = Place;
         this.FirstHeldYear = FirstHeldYear;
+        count++;
     }
 
     public void setName(String Name) {

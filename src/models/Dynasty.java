@@ -5,17 +5,24 @@ public class Dynasty {
     private String label;
     private String lunaryear;
     private String year;
-
-    public Dynasty() {
-
+    private static int count = 0;
+    public Dynasty(String name, String label, String lunaryear, String year) {
+        if (name.contains(".")) this.name = name.split("\\.",2)[1];
+        else this.name = name;
+        this.label = label;
+        this.lunaryear = lunaryear;
+        this.year = year;
+        count++;
     }
+
 
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name.contains(".")) this.name = name.split("\\.",2)[1];
+        else this.name = name;
     }
 
     public String getLabel() {

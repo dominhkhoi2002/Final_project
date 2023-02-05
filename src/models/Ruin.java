@@ -6,6 +6,7 @@ public class Ruin {
     private String address;
     private String type;
     private String recogyear;
+    private static int count = 0;
     public String getName() {
         return name;
     }
@@ -36,8 +37,10 @@ public class Ruin {
         this.address = address;
         this.type = type;
         this.recogyear = recogyear;
+        count++;
     }
     public Ruin() {
+        count++;
     }
   
 }

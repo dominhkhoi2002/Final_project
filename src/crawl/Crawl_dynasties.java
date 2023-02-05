@@ -36,14 +36,9 @@ public class Crawl_Dynasties {
             Elements cols = row.select("td");
             int check = cols.size();
             if (check > 3) {
-                Dynasty historical_dynasty = new Dynasty();
-                historical_dynasty.setName(cols.get(0).text());
-                historical_dynasty.setLabel(cols.get(1).text());
-                historical_dynasty.setLunaryear(cols.get(2).text());
-                historical_dynasty.setYear(cols.get(3).text());
+                Dynasty historical_dynasty = new Dynasty(cols.get(0).text(), cols.get(1).text(), cols.get(2).text(), cols.get(3).text());
                 dynastiesList.add(historical_dynasty);
             }
-
         }
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String dy = gson.toJson(dynastiesList);    
